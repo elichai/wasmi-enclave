@@ -1,0 +1,21 @@
+[package]
+name = "enclave"
+version = "0.1.0"
+authors = ["Elichai <elichai@turkel.in>"]
+
+[lib]
+name = "enclave"
+crate-type = ["staticlib"]
+
+[features]
+default = []
+
+#[profile.release]
+#debug = true
+
+[dependencies]
+parity-wasm = { version = "0.31", default-features = false }
+wasmi = { git = "https://github.com/elichai/wasmi", rev = "std", default-features = false, features = ["core"] } # with hashbrown
+
+sgx_types = { git = "https://github.com/baidu/rust-sgx-sdk.git", rev = "v1.0.7" }
+sgx_tstd = { git = "https://github.com/baidu/rust-sgx-sdk.git", rev = "v1.0.7" }
